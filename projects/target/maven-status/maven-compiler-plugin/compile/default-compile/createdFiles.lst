@@ -1,0 +1,5 @@
+chat\Agent.class
+chat\User.class
+chat\Client.class
+chat\ServerChat.class
+chat\ClientChat.class
