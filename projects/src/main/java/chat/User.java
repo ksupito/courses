@@ -1,5 +1,5 @@
 package chat;
 
 public interface User {
-    public void sendMessage(String message);
+    void sendMessage(String message, String name);
     }

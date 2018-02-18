@@ -1,26 +1,29 @@
 package chat;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
+import chat.server.ServerChat;
+import org.apache.log4j.Logger;
+
+import java.io.*;
 import java.net.Socket;
 
-public class Client implements Runnable , User{
+public class Client implements Runnable, User {
+    private static final Logger log = Logger.getLogger(Reader.class.getSimpleName());
     private Socket socket;
     private ServerChat server;
     private PrintWriter writer;
-    boolean hasAgent;
-    boolean waitAgent;
+    public boolean hasAgent;
+    private boolean waitAgent;
+    public String name;
+    private String message;
 
-    public Client(Socket socket, ServerChat server) {
+    public Client(Socket socket, ServerChat server, String name) {
         this.socket = socket;
         this.server = server;
+        this.name = name;
     }
 
     public void run() {
-        try {
-            BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream(), "UTF-8"))) {
             writer = new PrintWriter(socket.getOutputStream(), true);
             hasAgent = false;
             waitAgent = false;
@@ -33,39 +36,55 @@ public class Client implements Runnable , User{
                 } else if (!hasAgent && waitAgent) {
                     checkAgent(message);
                 } else if (hasAgent) {
-                    if (message.equals("/exit")) {
-                        server.exitClient(this);
-                        server.searchChat();
-                        socket.close();
-                        break;
-                    }
-                    if (message.equals("/leave")) {
-                        hasAgent = false;
-                        waitAgent = false;
-                        server.disconnectClient(this);
-                        server.searchChat();
+                    if (message != null) {
+                        if (message.equals("/exit")) {
+                            exit();
+                            break;
+                        }
+                        if (message.equals("/leave")) {
+                            leave();
+                        } else {
+                            server.sendClientMessage(message, this);
+                        }
                     } else {
-                        server.sendClientMessage(message, this);
+                        exit();
+                        break;
                     }
                 }
             }
         } catch (IOException e) {
-            System.out.println("logs");
+            log.error(e.getMessage());
+        } finally {
+            if (writer != null) {
+                writer.close();
+            }
         }
     }
 
-    public void sendMessage(String message) {
-        writer.println("agent: " + message);
+    public synchronized void sendMessage(String message, String name) {
+        writer.println(name + " : " + message);
     }
 
-    public void checkAgent(String message) {
+    public synchronized void checkAgent(String message) {
         boolean isChat = server.searchChat();
         if (!isChat) {
-            sendMessage("There aren't free agents in this moment");
+            sendMessage("There aren't free agents in this moment", "chat");
+            // this.message = message;
         } else if (isChat) {
             server.sendClientMessage(message, this);
             hasAgent = true;
         }
-
+    }
+    private synchronized void exit() throws IOException{
+        server.exitClient(this);
+        server.searchChat();
+        socket.close();
+    }
+    private synchronized void leave() throws IOException{
+        hasAgent = false;
+        waitAgent = false;
+        server.disconnectClient(this);
+        sendMessage("chat was ended", "chat");
+        server.searchChat();
     }
 }

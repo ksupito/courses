@@ -34,7 +34,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>chat.ServerChat</mainClass>
+                            <mainClass>chat.server.ServerChat</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

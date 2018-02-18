@@ -1,0 +1,43 @@
+2018-02-18 19:30:33 INFO  Reader:48 - New agent was added in a system
+2018-02-18 19:30:56 INFO  Reader:57 - New client was added in a system
+2018-02-18 19:30:58 INFO  Reader:84 - New chat was started
+2018-02-18 19:30:58 INFO  Reader:109 - Message to an agent
+2018-02-18 19:31:01 INFO  Reader:109 - Message to an agent
+2018-02-18 19:31:02 INFO  Reader:109 - Message to an agent
+2018-02-18 19:31:03 INFO  Reader:109 - Message to an agent
+2018-02-18 19:31:05 INFO  Reader:98 - Message to a client
+2018-02-18 19:31:10 INFO  Reader:151 - Client leaved
+2018-02-18 19:31:12 INFO  Reader:84 - New chat was started
+2018-02-18 19:31:12 INFO  Reader:109 - Message to an agent
+2018-02-18 19:31:13 INFO  Reader:109 - Message to an agent
+2018-02-18 19:31:30 INFO  Reader:57 - New client was added in a system
+2018-02-18 19:31:38 INFO  Reader:121 - Client exited
+2018-02-18 19:31:38 INFO  Reader:84 - New chat was started
+2018-02-18 19:31:42 INFO  Reader:109 - Message to an agent
+2018-02-18 19:31:43 INFO  Reader:109 - Message to an agent
+2018-02-18 19:44:44 INFO  Reader:57 - New client was added in a system
+2018-02-18 19:45:06 INFO  Reader:48 - New agent was added in a system
+2018-02-18 19:45:13 INFO  Reader:84 - New chat was started
+2018-02-18 19:45:13 INFO  Reader:109 - Message to an agent
+2018-02-18 19:45:41 INFO  Reader:57 - New client was added in a system
+2018-02-18 19:45:55 INFO  Reader:98 - Message to a client
+2018-02-18 19:45:59 INFO  Reader:98 - Message to a client
+2018-02-18 19:46:04 INFO  Reader:151 - Client leaved
+2018-02-18 19:46:04 INFO  Reader:84 - New chat was started
+2018-02-18 19:46:13 INFO  Reader:98 - Message to a client
+2018-02-18 19:46:23 INFO  Reader:98 - Message to a client
+2018-02-18 19:46:25 INFO  Reader:137 - Agent exited
+2018-02-18 19:53:16 INFO  Reader:57 - New client was added in a system
+2018-02-18 19:53:37 INFO  Reader:57 - New client was added in a system
+2018-02-18 19:54:06 ERROR Reader:39 - Socket Closed
+2018-02-18 19:56:36 INFO  Reader:57 - New client was added in a system
+2018-02-18 19:56:49 INFO  Reader:57 - New client was added in a system
+2018-02-18 19:58:09 ERROR Reader:39 - Socket closed
+2018-02-18 20:01:18 INFO  Reader:57 - New client was added in a system
+2018-02-18 20:01:33 INFO  Reader:57 - New client was added in a system
+2018-02-18 20:01:51 INFO  Reader:84 - New chat was started
+2018-02-18 20:01:51 INFO  Reader:48 - New agent was added in a system
+2018-02-18 20:01:54 INFO  Reader:98 - Message to a client
+2018-02-18 20:07:11 INFO  Reader:58 - New client was added in a system
+2018-02-18 20:07:24 INFO  Reader:58 - New client was added in a system
+2018-02-18 20:07:53 ERROR Reader:40 - Socket is closed
