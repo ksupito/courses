@@ -1,7 +1,7 @@
 package chat.server;
 
-import chat.Agent;
-import chat.Client;
+import chat.classes.Agent;
+import chat.classes.Client;
 import org.apache.log4j.Logger;
 
 import java.io.*;

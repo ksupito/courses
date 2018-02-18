@@ -1,4 +1,4 @@
-package chat;
+package chat.classes;
 
 import chat.server.ServerChat;
 import org.apache.log4j.Logger;

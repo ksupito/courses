@@ -1,4 +1,4 @@
-package chat;
+package chat.classes;
 
 import java.io.*;
 import java.net.Socket;
