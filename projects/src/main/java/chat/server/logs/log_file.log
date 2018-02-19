@@ -41,3 +41,37 @@
 2018-02-18 20:07:11 INFO  Reader:58 - New client was added in a system
 2018-02-18 20:07:24 INFO  Reader:58 - New client was added in a system
 2018-02-18 20:07:53 ERROR Reader:40 - Socket is closed
+2018-02-19 12:36:10 INFO  Reader:48 - New agent was added in a system
+2018-02-19 20:23:06 INFO  Reader:76 - New chat was started
+2018-02-19 20:23:07 INFO  Reader:101 - Message to an agent
+2018-02-19 20:23:15 INFO  Reader:90 - Message to a client
+2018-02-19 20:23:18 INFO  Reader:90 - Message to a client
+2018-02-19 20:23:21 INFO  Reader:129 - Agent exited
+2018-02-19 21:15:31 INFO  Reader:76 - New chat was started
+2018-02-19 21:15:31 INFO  Reader:101 - Message to an agent
+2018-02-19 21:15:31 INFO  Reader:101 - Message to an agent
+2018-02-19 21:15:31 INFO  Reader:101 - Message to an agent
+2018-02-19 21:15:31 INFO  Reader:101 - Message to an agent
+2018-02-19 21:15:31 INFO  Reader:101 - Message to an agent
+2018-02-19 21:27:55 INFO  Reader:76 - New chat was started
+2018-02-19 21:27:55 INFO  Reader:101 - Message to an agent
+2018-02-19 21:28:52 INFO  Reader:143 - Client leaved
+2018-02-19 21:28:52 INFO  Reader:76 - New chat was started
+2018-02-19 21:59:20 INFO  Reader:76 - New chat was started
+2018-02-19 21:59:20 INFO  Reader:101 - Message to an agent
+2018-02-19 21:59:20 INFO  Reader:101 - Message to an agent
+2018-02-19 22:02:21 INFO  Reader:76 - New chat was started
+2018-02-19 22:02:53 INFO  Reader:76 - New chat was started
+2018-02-19 22:35:00 INFO  Reader:102 - Message to an agent
+2018-02-19 22:35:00 INFO  Reader:102 - Message to an agent
+2018-02-19 22:35:00 INFO  Reader:77 - New chat was started
+2018-02-19 23:08:50 INFO  Reader:101 - Message to an agent
+2018-02-19 23:08:50 INFO  Reader:75 - New chat was started
+2018-02-19 23:09:06 INFO  Reader:89 - Message to a client
+2018-02-19 23:09:07 INFO  Reader:89 - Message to a client
+2018-02-19 23:13:37 INFO  Reader:101 - Message to an agent
+2018-02-19 23:13:37 INFO  Reader:101 - Message to an agent
+2018-02-19 23:13:37 INFO  Reader:75 - New chat was started
+2018-02-19 23:13:39 INFO  Reader:89 - Message to a client
+2018-02-19 23:13:40 INFO  Reader:89 - Message to a client
+2018-02-19 23:13:42 INFO  Reader:131 - Agent exited

@@ -6,7 +6,7 @@ import java.net.Socket;
 import chat.server.*;
 import org.apache.log4j.Logger;
 
-public class Agent implements Runnable, User {
+public class Agent implements User {
     private static final Logger log = Logger.getLogger(Reader.class.getSimpleName());
     private Socket socket;
     private ServerChat server;
@@ -19,10 +19,10 @@ public class Agent implements Runnable, User {
         this.name = name;
     }
 
-    public void run() {
+    public void start() {
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream(), "UTF-8"))) {
             writer = new PrintWriter(socket.getOutputStream(), true);
-            notifyAll();
+            server.searchChat();
             while (true) {
                 String message = reader.readLine();
                 if (message != null) {
@@ -46,10 +46,12 @@ public class Agent implements Runnable, User {
     }
 
     public synchronized void sendMessage(String message, String name) {
-        if(writer!=null){
-        writer.println(name + " : " + message);} //надо переделать!!!
+        if (writer != null) {
+            writer.println(name + " : " + message);
+        } //надо переделать!!!
     }
-    private synchronized void exit()throws IOException{
+
+    private synchronized void exit() throws IOException {
         server.exitAgent(this);
         server.searchChat();
         socket.close();

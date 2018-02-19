@@ -1,6 +1,7 @@
 package chat.server;
 
 import chat.classes.Agent;
+import chat.classes.Users;
 import chat.classes.Client;
 import org.apache.log4j.Logger;
 
@@ -12,7 +13,7 @@ import java.util.*;
 public class ServerChat {
     private static final Logger log = Logger.getLogger(Reader.class.getSimpleName());
     private static final int PORT = 8887;
-    private Map<Agent, Client> chat = new HashMap<>();
+    private Map<Agent, Client> mapAgents = new HashMap<>();
     private Queue<Client> queueClients = new LinkedList<>();
     private List<Client> listClients = new LinkedList<>();
     Socket socket;
@@ -37,29 +38,8 @@ public class ServerChat {
                 reader = new BufferedReader(new InputStreamReader(socket.getInputStream(), "UTF-8"));
                 writer = new PrintWriter(socket.getOutputStream(), true);
                 writer.println("Start");
-                while (true) {
-                    String registration = reader.readLine();
-                    if (registration.contains("/register agent ")) {
-                        String name = registration.replaceFirst("/register agent ", "");
-                        Agent agent = new Agent(socket, this, name);
-                        new Thread(agent).start();
-                        chat.put(agent, null);
-                        searchChat();
-                        log.info("New agent was added in a system");
-                        break;
-                    }
-                    if (registration.contains("/register client ")) {
-                        String name = registration.replaceFirst("/register client ", "");
-                        Client client = new Client(socket, this, name);
-                        new Thread(client).start();
-                        listClients.add(client);
-                        searchChat();
-                        log.info("New client was added in a system");
-                        break;
-                    } else {
-                        writer.println("Incorrect console command ");
-                    }
-                }
+                Users classUser = new Users(socket, this, "n");
+                new Thread(classUser).start();
             }
         } finally {
             if (socket != null || reader != null || writer != null) {
@@ -70,17 +50,26 @@ public class ServerChat {
         }
     }
 
+    public synchronized void addAgent(Agent agent) {
+        mapAgents.put(agent, null);
+    }
+
+    public synchronized void addClient(Client client) {
+        listClients.add(client);
+    }
+
     public synchronized boolean searchChat() { //search new chat for an free agent and a client without client
-        for (Map.Entry<Agent, Client> entry : chat.entrySet()) {
+        for (Map.Entry<Agent, Client> entry : mapAgents.entrySet()) {
             if (queueClients.size() != 0) {
                 Agent agent = entry.getKey();
                 Client client = entry.getValue();
                 if (agent != null && client == null) {
                     Client clientQueue = queueClients.remove();
                     clientQueue.hasAgent = true;
-                    chat.put(agent, clientQueue);
+                    mapAgents.put(agent, clientQueue);
                     agent.sendMessage("new chat was started", "chat");
                     clientQueue.sendMessage("new chat was started", "chat");
+                    clientQueue.checkMessage();
                     log.info("New chat was started");
                     return true;
                 }
@@ -90,41 +79,44 @@ public class ServerChat {
     }
 
     public synchronized void sendAgentMessage(String message, Agent a) { //method send message to client
-        for (Map.Entry<Agent, Client> entry : chat.entrySet()) {
+        for (Map.Entry<Agent, Client> entry : mapAgents.entrySet()) {
             Agent agent = entry.getKey();
             Client client = entry.getValue();
-            if (agent == a && client != null)
-            {client.sendMessage(message, agent.name);
-            log.info("Message to a client");
-            return;}
+            if (agent == a && client != null) {
+                client.sendMessage(message, agent.name);
+                log.info("Message to a client");
+                return;
+            }
         }
     }
 
     public synchronized void sendClientMessage(String message, Client c) { //method send message to agent
-        for (Map.Entry<Agent, Client> entry : chat.entrySet()) {
+        for (Map.Entry<Agent, Client> entry : mapAgents.entrySet()) {
             Agent agent = entry.getKey();
             Client client = entry.getValue();
-            if (client == c){
+            if (client == c) {
                 agent.sendMessage(message, client.name);
                 log.info("Message to an agent");
-                return;}
+                return;
+            }
         }
     }
 
     public synchronized void exitClient(Client c) { //if a client input /exit in time of a chat method'll remove the client from map
-        for (Map.Entry<Agent, Client> entry : chat.entrySet()) {
+        for (Map.Entry<Agent, Client> entry : mapAgents.entrySet()) {
             Agent agent = entry.getKey();
             Client client = entry.getValue();
-            if (client == c){
+            if (client == c) {
                 agent.sendMessage("chat was ended", "chat");
-            chat.replace(agent, null);
+                mapAgents.replace(agent, null);
                 log.info("Client exited");
-            return;}
+                return;
+            }
         }
     }
 
     public synchronized void exitAgent(Agent a) {//if a agent input /exit in time of a chat method'll remove the agent from map and a client'll be added to array
-        for (Map.Entry<Agent, Client> entry : chat.entrySet()) {
+        for (Map.Entry<Agent, Client> entry : mapAgents.entrySet()) {
             Agent agent = entry.getKey();
             Client client = entry.getValue();
             if (agent == a) {
@@ -133,7 +125,7 @@ public class ServerChat {
                     listClients.add(client);
                     client.hasAgent = false;
                 }
-                chat.remove(agent, client);
+                mapAgents.remove(agent, client);
                 log.info("Agent exited");
                 return;
             }
@@ -141,7 +133,7 @@ public class ServerChat {
     }
 
     public synchronized void disconnectClient(Client c) {//if a client input /leave in time of a chat method'll remove the client from map and be added to array
-        for (Map.Entry<Agent, Client> entry : chat.entrySet()) {
+        for (Map.Entry<Agent, Client> entry : mapAgents.entrySet()) {
             Agent agent = entry.getKey();
             Client client = entry.getValue();
             if (client == c) {
