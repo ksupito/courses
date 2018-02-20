@@ -33,6 +33,7 @@ public class UserThread implements Runnable {
                     Agent agent = new Agent(socket, server, name);
                     server.addAgent(agent);
                     agent.start();
+                    server.searchChat();
 
                     break;
                 }
@@ -41,6 +42,7 @@ public class UserThread implements Runnable {
                     Client client = new Client(socket, server, name);
                     server.addClient(client);
                     client.start();
+                    server.searchChat();
 
                     break;
                 } else {
