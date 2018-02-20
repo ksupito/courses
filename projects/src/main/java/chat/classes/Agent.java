@@ -46,9 +46,7 @@ public class Agent implements User {
     }
 
     public synchronized void sendMessage(String message, String name) {
-        if (writer != null) {
             writer.println(name + " : " + message);
-        } //надо переделать!!!
     }
 
     private synchronized void exit() throws IOException {

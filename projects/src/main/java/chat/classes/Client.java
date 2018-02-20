@@ -31,6 +31,7 @@ public class Client implements User {
             waitAgent = false;
             while (true) {
                 String message = reader.readLine();
+                if (message != null) {
                 if (message.equals("/exit")) {
                     exit();
                     break;
@@ -46,7 +47,7 @@ public class Client implements User {
                 } else if (!hasAgent && waitAgent) {
                     checkAgent(message);
                 } else if (hasAgent) {
-                    if (message != null) {
+                  // if (message != null) {
                         if (message.equals("/exit")) {
                             exit();
                             break;
@@ -57,10 +58,10 @@ public class Client implements User {
                         } else {
                             server.sendClientMessage(message, this);
                         }
-                    } else {
-                        exit();
-                        break;
                     }
+                }else {
+                    exit();
+                    break;
                 }
             }
         } catch (IOException e) {

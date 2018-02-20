@@ -1,7 +1,7 @@
 package chat.server;
 
 import chat.classes.Agent;
-import chat.classes.Users;
+import chat.classes.UserThread;
 import chat.classes.Client;
 import org.apache.log4j.Logger;
 
@@ -38,7 +38,7 @@ public class ServerChat {
                 reader = new BufferedReader(new InputStreamReader(socket.getInputStream(), "UTF-8"));
                 writer = new PrintWriter(socket.getOutputStream(), true);
                 writer.println("Start");
-                Users classUser = new Users(socket, this, "n");
+                UserThread classUser = new UserThread(socket, this, "n");
                 new Thread(classUser).start();
             }
         } finally {

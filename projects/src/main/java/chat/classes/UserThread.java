@@ -8,14 +8,14 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 
-public class Users implements Runnable {
+public class UserThread implements Runnable {
     private Socket socket;
     private ServerChat server;
     BufferedReader reader;
     PrintWriter writer;
     public String name;
 
-    public Users(Socket socket, ServerChat server, String name) {
+    public UserThread(Socket socket, ServerChat server, String name) {
         this.socket = socket;
         this.server = server;
         this.name = name;
