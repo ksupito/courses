@@ -11,35 +11,41 @@ import java.net.Socket;
 import java.util.*;
 
 public class ServerChat {
-    private static final Logger log = Logger.getLogger(Reader.class.getSimpleName());
+    private static final Logger log = Logger.getLogger(ServerChat.class.getSimpleName());
     private static final int PORT = 8887;
     private Map<Agent, Client> mapAgents = new HashMap<>();
     private Queue<Client> queueClients = new LinkedList<>();
     private List<Client> listClients = new LinkedList<>();
-    Socket socket;
-    BufferedReader reader;
-    PrintWriter writer;
+    private Socket socket;
+    private BufferedReader reader;
+    private PrintWriter writer;
+    public String nameChat = "------";
 
-    public static void main(String[] args) {
-        org.apache.log4j.PropertyConfigurator.configure("src/main/resources/log4j.properties");
-        ServerChat server = new ServerChat();
-        try {
-            server.start();
-        } catch (IOException e) {
-            log.error(e.getMessage());
-        }
-
+    public String getNameChat() {
+        return nameChat;
     }
 
-    private void start() throws IOException {
+    public Map<Agent, Client> getMapAgents() {
+        return mapAgents;
+    }
+
+    public List<Client> getListClients() {
+        return listClients;
+    }
+
+    public Queue<Client> getQueueClients() {
+        return queueClients;
+    }
+
+    public void start() throws IOException {
         try (ServerSocket serverSocket = new ServerSocket(PORT)) {
             while (true) {
                 socket = serverSocket.accept();
                 reader = new BufferedReader(new InputStreamReader(socket.getInputStream(), "UTF-8"));
                 writer = new PrintWriter(socket.getOutputStream(), true);
                 writer.println("Start");
-                UserThread classUser = new UserThread(socket, this, "n");
-                new Thread(classUser).start();
+                UserThread userThread = new UserThread(socket, this);
+                new Thread(userThread).start();
             }
         } finally {
             if (socket != null || reader != null || writer != null) {
@@ -64,12 +70,12 @@ public class ServerChat {
                 Agent agent = entry.getKey();
                 Client client = entry.getValue();
                 if (agent != null && client == null) {
-                    Client clientQueue = queueClients.remove();
-                    clientQueue.hasAgent = true;
-                    mapAgents.put(agent, clientQueue);
-                    agent.sendMessage("new chat was started", "chat");
-                    clientQueue.sendMessage("new chat was started", "chat");
-                    clientQueue.checkMessage();
+                    Client clientFromQueue = queueClients.remove();
+                    clientFromQueue.setHasAgent(true);
+                    mapAgents.put(agent, clientFromQueue);
+                    agent.sendMessage("new chat!", nameChat);
+                    clientFromQueue.sendMessage("new chat!", nameChat);
+                    clientFromQueue.checkListMessages();
                     log.info("New chat was started");
                     return true;
                 }
@@ -78,72 +84,77 @@ public class ServerChat {
         return false;
     }
 
-    public synchronized void sendAgentMessage(String message, Agent a) { //method send message to client
+    public synchronized boolean sendAgentMessage(String message, Agent ag) { //method send message to client
         for (Map.Entry<Agent, Client> entry : mapAgents.entrySet()) {
             Agent agent = entry.getKey();
             Client client = entry.getValue();
-            if (agent == a && client != null) {
-                client.sendMessage(message, agent.name);
+            if (agent == ag && client != null) {
+                client.sendMessage(message, agent.getName());
                 log.info("Message to a client");
-                return;
+                return true;
             }
         }
+        return false;
     }
 
-    public synchronized void sendClientMessage(String message, Client c) { //method send message to agent
+    public synchronized boolean sendClientMessage(String message, Client cl) { //method send message to agent
         for (Map.Entry<Agent, Client> entry : mapAgents.entrySet()) {
             Agent agent = entry.getKey();
             Client client = entry.getValue();
-            if (client == c) {
-                agent.sendMessage(message, client.name);
+            if (client ==cl  && agent!=null) {
+                agent.sendMessage(message, client.getName());
                 log.info("Message to an agent");
-                return;
+                return true;
             }
         }
+        return false;
     }
 
-    public synchronized void exitClient(Client c) { //if a client input /exit in time of a chat method'll remove the client from map
+    public synchronized boolean exitClient(Client cl) { //if a client input /exit in time of a chat method'll remove the client from map
         for (Map.Entry<Agent, Client> entry : mapAgents.entrySet()) {
             Agent agent = entry.getKey();
             Client client = entry.getValue();
-            if (client == c) {
-                agent.sendMessage("chat was ended", "chat");
+            if (client ==cl  && agent!=null) {
+                agent.sendMessage("client exited", nameChat);
                 mapAgents.replace(agent, null);
                 log.info("Client exited");
-                return;
+                return true;
             }
         }
+        return false;
     }
 
-    public synchronized void exitAgent(Agent a) {//if a agent input /exit in time of a chat method'll remove the agent from map and a client'll be added to array
+    public synchronized boolean exitAgent(Agent ag) {//if a agent input /exit in time of a chat method'll remove the agent from map and a client'll be added to array
         for (Map.Entry<Agent, Client> entry : mapAgents.entrySet()) {
             Agent agent = entry.getKey();
             Client client = entry.getValue();
-            if (agent == a) {
+            if (agent == ag) {
                 if (client != null) {
-                    client.sendMessage("chat was ended", "chat");
+                    client.sendMessage("agent exited", nameChat);
                     listClients.add(client);
-                    client.hasAgent = false;
+                    client.setHasAgent(false);
                 }
-                mapAgents.remove(agent, client);
+                mapAgents.remove(agent);
                 log.info("Agent exited");
-                return;
+                return true;
             }
         }
+        return false;
     }
 
-    public synchronized void disconnectClient(Client c) {//if a client input /leave in time of a chat method'll remove the client from map and be added to array
+    public synchronized boolean disconnectClient(Client cl) {//if a client input /leave in time of a chat method'll remove the client from map and be added to array
         for (Map.Entry<Agent, Client> entry : mapAgents.entrySet()) {
             Agent agent = entry.getKey();
             Client client = entry.getValue();
-            if (client == c) {
+            if (client ==cl  && agent!=null) {
                 listClients.add(client);
-                agent.sendMessage("chat was ended", "chat");
+                agent.sendMessage("client leaved", nameChat);
                 entry.setValue(null);
                 log.info("Client leaved");
-                return;
+                return true;
             }
         }
+        return false;
     }
 
     public synchronized void getInQueue(Client client) { // add client in a queue if he wrote message
@@ -153,5 +164,16 @@ public class ServerChat {
                 listClients.remove(i);
             }
         }
+    }
+    public static void main(String[] args) {
+        org.apache.log4j.PropertyConfigurator.configure("src/main/resources/log4j.properties");
+        ServerChat server = new ServerChat();
+        try {
+            server.start();
+        } catch (IOException e) {
+
+            log.error(e.getMessage());
+        }
+
     }
 }

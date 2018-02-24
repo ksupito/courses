@@ -9,14 +9,14 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Client implements User {
-    private static final Logger log = Logger.getLogger(Reader.class.getSimpleName());
+    private static final Logger log = Logger.getLogger(Client.class.getSimpleName());
     private Socket socket;
     private ServerChat server;
     private PrintWriter writer;
-    public boolean hasAgent;
+    private boolean hasAgent;
     private boolean waitAgent;
-    public String name;
-    List<String> listMessages = new LinkedList<>();
+    private String name;
+    private List<String> listMessages = new LinkedList<>();
 
     public Client(Socket socket, ServerChat server, String name) {
         this.socket = socket;
@@ -24,52 +24,48 @@ public class Client implements User {
         this.name = name;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setHasAgent(boolean hasAgent) {
+        this.hasAgent = hasAgent;
+    }
+
     public void start() {
-        try (BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream(), "UTF-8"))) {
-            writer = new PrintWriter(socket.getOutputStream(), true);
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream(), "UTF-8"));
+             OutputStream out = socket.getOutputStream()) {
+            writer = new PrintWriter(out, true);
             hasAgent = false;
             waitAgent = false;
             while (true) {
                 String message = reader.readLine();
                 if (message != null) {
-                if (message.equals("/exit")) {
-                    exit();
-                    break;
-                }
-                if (message.equals("/leave")) {
-                    leave();
-                    continue;
-                }
-                if (!hasAgent && !waitAgent) {
-                    server.getInQueue(this);
-                    waitAgent = true;
-                    checkAgent(message);
-                } else if (!hasAgent && waitAgent) {
-                    checkAgent(message);
-                } else if (hasAgent) {
-                  // if (message != null) {
-                        if (message.equals("/exit")) {
-                            exit();
-                            break;
-                        }
-                        if (message.equals("/leave")) {
-                            leave();
-                            continue;
-                        } else {
-                            server.sendClientMessage(message, this);
-                        }
+                    if (message.trim().equals("/exit")) {
+                        exit();
+                        break;
                     }
-                }else {
+                    if (message.trim().equals("/leave")) {
+                        leave();
+                        continue;
+                    }
+                    if (!hasAgent && !waitAgent) {
+                        server.getInQueue(this);
+                        waitAgent = true;
+                        checkAgent(message);
+                    } else if (!hasAgent && waitAgent) {
+                        checkAgent(message);
+                    } else if (hasAgent) {
+                            server.sendClientMessage(message, this);
+
+                    }
+                } else {
                     exit();
                     break;
                 }
             }
         } catch (IOException e) {
             log.error(e.getMessage());
-        } finally {
-            if (writer != null) {
-                writer.close();
-            }
         }
     }
 
@@ -81,17 +77,12 @@ public class Client implements User {
         boolean isChat = server.searchChat();
         if (!isChat) {
             listMessages.add(message);
-            sendMessage("There aren't free agents in this moment", "chat");
+            sendMessage("There aren't free agents in this moment", server.getNameChat());
         } else if (isChat) {
-            if (listMessages.size() != 0) {
-                for (int i = 0; i < listMessages.size(); i++) {
-                    server.sendClientMessage(listMessages.get(i), this);
-                }
-                hasAgent = true;
-            } else {
-                server.sendClientMessage(message, this);
-                hasAgent = true;
-            }
+           if(!checkListMessages()){
+               server.sendClientMessage(message, this);
+           }
+           hasAgent = true;
         }
     }
 
@@ -101,19 +92,24 @@ public class Client implements User {
         socket.close();
     }
 
-    private synchronized void leave() throws IOException {
+    private synchronized void leave() {
         hasAgent = false;
         waitAgent = false;
         server.disconnectClient(this);
-        sendMessage("chat was ended", "chat");
         server.searchChat();
     }
 
-    public synchronized void checkMessage() {
+    public synchronized boolean checkListMessages() {
         if (listMessages.size() != 0) {
-            for (int i = 0; i < listMessages.size(); i++) {
-                server.sendClientMessage(listMessages.get(i), this);
+            for (String message : listMessages) {
+                server.sendClientMessage(message, this);
             }
+            listMessages.clear();
+            return true;
         }
+        return false;
     }
+
+
+
 }

@@ -95,3 +95,292 @@
 2018-02-20 12:25:00 INFO  Reader:112 - Client exited
 2018-02-20 12:25:02 INFO  Reader:129 - Agent exited
 2018-02-20 12:25:06 INFO  Reader:129 - Agent exited
+2018-02-20 14:51:01 INFO  Reader:99 - Message to an agent
+2018-02-20 14:51:01 INFO  Reader:73 - New chat was started
+2018-02-21 00:21:07 INFO  Reader:112 - Client exited
+2018-02-21 00:21:08 INFO  Reader:129 - Agent exited
+2018-02-21 11:57:48 INFO  Reader:99 - Message to an agent
+2018-02-21 11:57:48 INFO  Reader:99 - Message to an agent
+2018-02-21 11:57:48 INFO  Reader:99 - Message to an agent
+2018-02-21 11:57:48 INFO  Reader:99 - Message to an agent
+2018-02-21 11:57:48 INFO  Reader:99 - Message to an agent
+2018-02-21 11:57:48 INFO  Reader:99 - Message to an agent
+2018-02-21 11:57:48 INFO  Reader:99 - Message to an agent
+2018-02-21 11:57:48 INFO  Reader:99 - Message to an agent
+2018-02-21 11:57:48 INFO  Reader:99 - Message to an agent
+2018-02-21 11:57:48 INFO  Reader:73 - New chat was started
+2018-02-21 11:57:58 INFO  Reader:87 - Message to a client
+2018-02-21 11:58:02 INFO  Reader:143 - Client leaved
+2018-02-21 11:58:02 INFO  Reader:99 - Message to an agent
+2018-02-21 11:58:02 INFO  Reader:73 - New chat was started
+2018-02-21 11:58:15 INFO  Reader:87 - Message to a client
+2018-02-21 11:58:53 INFO  Reader:87 - Message to a client
+2018-02-21 11:59:06 INFO  Reader:99 - Message to an agent
+2018-02-21 11:59:06 INFO  Reader:99 - Message to an agent
+2018-02-21 11:59:06 INFO  Reader:99 - Message to an agent
+2018-02-21 11:59:06 INFO  Reader:99 - Message to an agent
+2018-02-21 11:59:06 INFO  Reader:99 - Message to an agent
+2018-02-21 11:59:06 INFO  Reader:99 - Message to an agent
+2018-02-21 11:59:06 INFO  Reader:99 - Message to an agent
+2018-02-21 11:59:06 INFO  Reader:99 - Message to an agent
+2018-02-21 11:59:06 INFO  Reader:99 - Message to an agent
+2018-02-21 11:59:06 INFO  Reader:99 - Message to an agent
+2018-02-21 11:59:06 INFO  Reader:73 - New chat was started
+2018-02-21 12:06:19 INFO  Reader:99 - Message to an agent
+2018-02-21 12:06:19 INFO  Reader:99 - Message to an agent
+2018-02-21 12:06:19 INFO  Reader:99 - Message to an agent
+2018-02-21 12:06:19 INFO  Reader:99 - Message to an agent
+2018-02-21 12:06:19 INFO  Reader:99 - Message to an agent
+2018-02-21 12:06:19 INFO  Reader:73 - New chat was started
+2018-02-21 12:06:24 INFO  Reader:87 - Message to a client
+2018-02-21 12:06:30 INFO  Reader:143 - Client leaved
+2018-02-21 12:06:30 INFO  Reader:99 - Message to an agent
+2018-02-21 12:06:30 INFO  Reader:73 - New chat was started
+2018-02-21 12:06:48 INFO  Reader:99 - Message to an agent
+2018-02-21 12:06:48 INFO  Reader:99 - Message to an agent
+2018-02-21 12:06:48 INFO  Reader:99 - Message to an agent
+2018-02-21 12:06:48 INFO  Reader:99 - Message to an agent
+2018-02-21 12:06:48 INFO  Reader:99 - Message to an agent
+2018-02-21 12:06:48 INFO  Reader:73 - New chat was started
+2018-02-21 12:06:48 INFO  Reader:99 - Message to an agent
+2018-02-21 12:06:48 INFO  Reader:99 - Message to an agent
+2018-02-21 12:06:48 INFO  Reader:99 - Message to an agent
+2018-02-21 12:06:48 INFO  Reader:99 - Message to an agent
+2018-02-21 12:06:48 INFO  Reader:99 - Message to an agent
+2018-02-21 12:15:22 INFO  Reader:99 - Message to an agent
+2018-02-21 12:15:22 INFO  Reader:99 - Message to an agent
+2018-02-21 12:15:22 INFO  Reader:73 - New chat was started
+2018-02-21 12:19:20 INFO  Reader:99 - Message to an agent
+2018-02-21 12:19:20 INFO  Reader:99 - Message to an agent
+2018-02-21 12:19:20 INFO  Reader:99 - Message to an agent
+2018-02-21 12:19:20 INFO  Reader:99 - Message to an agent
+2018-02-21 12:19:20 INFO  Reader:73 - New chat was started
+2018-02-21 12:19:29 INFO  Reader:143 - Client leaved
+2018-02-21 12:19:29 INFO  Reader:99 - Message to an agent
+2018-02-21 12:19:29 INFO  Reader:73 - New chat was started
+2018-02-21 12:19:43 INFO  Reader:99 - Message to an agent
+2018-02-21 12:19:43 INFO  Reader:73 - New chat was started
+2018-02-21 12:28:45 INFO  Reader:99 - Message to an agent
+2018-02-21 12:28:46 INFO  Reader:99 - Message to an agent
+2018-02-21 12:28:48 INFO  Reader:99 - Message to an agent
+2018-02-21 12:28:49 INFO  Reader:99 - Message to an agent
+2018-02-21 12:28:50 INFO  Reader:99 - Message to an agent
+2018-02-21 12:28:51 INFO  Reader:99 - Message to an agent
+2018-02-21 12:28:53 INFO  Reader:87 - Message to a client
+2018-02-21 12:28:58 INFO  Reader:99 - Message to an agent
+2018-02-21 12:29:08 INFO  Reader:143 - Client leaved
+2018-02-21 12:29:35 INFO  Reader:129 - Agent exited
+2018-02-21 12:29:54 INFO  Reader:99 - Message to an agent
+2018-02-21 12:29:55 INFO  Reader:99 - Message to an agent
+2018-02-21 12:30:01 INFO  Reader:112 - Client exited
+2018-02-21 12:30:01 INFO  Reader:99 - Message to an agent
+2018-02-21 12:30:01 INFO  Reader:73 - New chat was started
+2018-02-21 14:05:16 INFO  ServerChat:100 - Message to an agent
+2018-02-21 14:05:16 INFO  ServerChat:74 - New chat was started
+2018-02-21 14:05:16 INFO  ServerChat:100 - Message to an agent
+2018-02-21 14:11:03 INFO  ServerChat:100 - Message to an agent
+2018-02-21 14:11:03 INFO  ServerChat:100 - Message to an agent
+2018-02-21 14:11:03 INFO  ServerChat:74 - New chat was started
+2018-02-21 14:34:11 INFO  ServerChat:104 - Message to an agent
+2018-02-21 14:34:11 INFO  ServerChat:104 - Message to an agent
+2018-02-21 14:34:11 INFO  ServerChat:104 - Message to an agent
+2018-02-21 14:34:11 INFO  ServerChat:78 - New chat was started
+2018-02-21 14:34:59 INFO  ServerChat:78 - New chat was started
+2018-02-21 14:34:59 INFO  ServerChat:104 - Message to an agent
+2018-02-21 14:35:05 INFO  ServerChat:104 - Message to an agent
+2018-02-21 15:28:31 INFO  ServerChat:78 - New chat was started
+2018-02-21 15:28:31 INFO  ServerChat:104 - Message to an agent
+2018-02-21 15:28:32 INFO  ServerChat:104 - Message to an agent
+2018-02-21 15:28:33 INFO  ServerChat:104 - Message to an agent
+2018-02-21 15:28:33 INFO  ServerChat:104 - Message to an agent
+2018-02-21 15:28:35 INFO  ServerChat:104 - Message to an agent
+2018-02-21 15:28:37 INFO  ServerChat:92 - Message to a client
+2018-02-21 15:30:20 INFO  ServerChat:134 - Agent exited
+2018-02-21 15:31:04 INFO  ServerChat:134 - Agent exited
+2018-02-21 15:33:44 INFO  ServerChat:78 - New chat was started
+2018-02-21 15:33:44 INFO  ServerChat:104 - Message to an agent
+2018-02-21 15:33:47 INFO  ServerChat:104 - Message to an agent
+2018-02-21 15:33:50 INFO  ServerChat:148 - Client leaved
+2018-02-21 15:33:54 INFO  ServerChat:78 - New chat was started
+2018-02-21 15:33:54 INFO  ServerChat:104 - Message to an agent
+2018-02-21 15:33:58 INFO  ServerChat:117 - Client exited
+2018-02-21 16:05:07 INFO  ServerChat:78 - New chat was started
+2018-02-21 16:05:07 INFO  ServerChat:104 - Message to an agent
+2018-02-21 16:46:21 INFO  ServerChat:134 - Agent exited
+2018-02-22 18:21:56 INFO  ServerChat:121 - Client exited
+2018-02-22 18:32:16 INFO  ServerChat:121 - Client exited
+2018-02-22 18:44:17 INFO  ServerChat:121 - Client exited
+2018-02-22 18:46:25 INFO  ServerChat:121 - Client exited
+2018-02-22 18:47:05 INFO  ServerChat:121 - Client exited
+2018-02-22 18:48:01 INFO  ServerChat:121 - Client exited
+2018-02-22 18:48:20 INFO  ServerChat:121 - Client exited
+2018-02-22 18:48:24 INFO  ServerChat:121 - Client exited
+2018-02-22 18:49:40 INFO  ServerChat:121 - Client exited
+2018-02-22 18:59:11 INFO  ServerChat:121 - Client exited
+2018-02-22 20:40:30 INFO  ServerChat:121 - Client exited
+2018-02-22 20:40:30 INFO  ServerChat:139 - Agent exited
+2018-02-22 20:41:02 INFO  ServerChat:121 - Client exited
+2018-02-22 20:41:02 INFO  ServerChat:139 - Agent exited
+2018-02-22 20:41:30 INFO  ServerChat:121 - Client exited
+2018-02-22 20:41:30 INFO  ServerChat:139 - Agent exited
+2018-02-22 20:42:12 INFO  ServerChat:121 - Client exited
+2018-02-22 20:42:12 INFO  ServerChat:139 - Agent exited
+2018-02-22 21:05:25 INFO  ServerChat:121 - Client exited
+2018-02-22 21:05:25 INFO  ServerChat:139 - Agent exited
+2018-02-22 21:06:23 INFO  ServerChat:121 - Client exited
+2018-02-22 21:06:23 INFO  ServerChat:139 - Agent exited
+2018-02-22 21:06:23 INFO  ServerChat:139 - Agent exited
+2018-02-22 21:08:54 INFO  ServerChat:121 - Client exited
+2018-02-22 21:08:54 INFO  ServerChat:139 - Agent exited
+2018-02-22 21:10:58 INFO  ServerChat:121 - Client exited
+2018-02-22 21:10:58 INFO  ServerChat:139 - Agent exited
+2018-02-22 21:11:34 INFO  ServerChat:121 - Client exited
+2018-02-22 21:11:34 INFO  ServerChat:139 - Agent exited
+2018-02-22 21:13:58 INFO  ServerChat:139 - Agent exited
+2018-02-22 21:14:38 INFO  ServerChat:139 - Agent exited
+2018-02-22 21:16:07 INFO  ServerChat:121 - Client exited
+2018-02-22 21:16:07 INFO  ServerChat:139 - Agent exited
+2018-02-22 21:18:04 INFO  ServerChat:121 - Client exited
+2018-02-22 21:18:04 INFO  ServerChat:139 - Agent exited
+2018-02-22 21:18:39 INFO  ServerChat:121 - Client exited
+2018-02-22 21:18:39 INFO  ServerChat:139 - Agent exited
+2018-02-22 21:18:39 INFO  ServerChat:139 - Agent exited
+2018-02-22 22:14:49 INFO  ServerChat:125 - Client exited
+2018-02-22 22:14:49 INFO  ServerChat:143 - Agent exited
+2018-02-22 22:14:49 INFO  ServerChat:143 - Agent exited
+2018-02-22 22:15:21 INFO  ServerChat:158 - Client leaved
+2018-02-22 22:15:21 INFO  ServerChat:125 - Client exited
+2018-02-22 22:15:21 INFO  ServerChat:143 - Agent exited
+2018-02-22 22:15:21 INFO  ServerChat:143 - Agent exited
+2018-02-22 22:18:17 INFO  ServerChat:158 - Client leaved
+2018-02-22 22:18:17 INFO  ServerChat:125 - Client exited
+2018-02-22 22:18:17 INFO  ServerChat:143 - Agent exited
+2018-02-22 22:18:17 INFO  ServerChat:143 - Agent exited
+2018-02-22 22:19:47 INFO  ServerChat:158 - Client leaved
+2018-02-22 22:19:47 INFO  ServerChat:125 - Client exited
+2018-02-22 22:19:47 INFO  ServerChat:143 - Agent exited
+2018-02-22 22:19:47 INFO  ServerChat:143 - Agent exited
+2018-02-22 22:30:52 INFO  ServerChat:112 - Message to an agent
+2018-02-22 22:30:52 INFO  ServerChat:159 - Client leaved
+2018-02-22 22:30:52 INFO  ServerChat:126 - Client exited
+2018-02-22 22:30:52 INFO  ServerChat:144 - Agent exited
+2018-02-22 22:30:52 INFO  ServerChat:144 - Agent exited
+2018-02-22 22:45:20 INFO  ServerChat:100 - Message to a client
+2018-02-22 22:45:20 INFO  ServerChat:113 - Message to an agent
+2018-02-22 22:45:20 INFO  ServerChat:160 - Client leaved
+2018-02-22 22:45:20 INFO  ServerChat:127 - Client exited
+2018-02-22 22:45:20 INFO  ServerChat:145 - Agent exited
+2018-02-22 22:45:20 INFO  ServerChat:145 - Agent exited
+2018-02-22 22:49:54 INFO  ServerChat:104 - Message to a client
+2018-02-22 22:49:54 INFO  ServerChat:90 - New chat was started
+2018-02-22 22:49:54 INFO  ServerChat:117 - Message to an agent
+2018-02-22 22:49:54 INFO  ServerChat:164 - Client leaved
+2018-02-22 22:49:54 INFO  ServerChat:131 - Client exited
+2018-02-22 22:49:54 INFO  ServerChat:149 - Agent exited
+2018-02-22 22:49:54 INFO  ServerChat:149 - Agent exited
+2018-02-22 22:50:59 INFO  ServerChat:104 - Message to a client
+2018-02-22 22:50:59 INFO  ServerChat:90 - New chat was started
+2018-02-22 22:50:59 INFO  ServerChat:117 - Message to an agent
+2018-02-22 22:50:59 INFO  ServerChat:164 - Client leaved
+2018-02-22 22:50:59 INFO  ServerChat:131 - Client exited
+2018-02-22 22:50:59 INFO  ServerChat:149 - Agent exited
+2018-02-22 22:50:59 INFO  ServerChat:149 - Agent exited
+2018-02-22 22:52:27 INFO  ServerChat:104 - Message to a client
+2018-02-22 22:52:27 INFO  ServerChat:90 - New chat was started
+2018-02-22 22:52:27 INFO  ServerChat:117 - Message to an agent
+2018-02-22 22:52:27 INFO  ServerChat:164 - Client leaved
+2018-02-22 22:52:27 INFO  ServerChat:131 - Client exited
+2018-02-22 22:52:27 INFO  ServerChat:149 - Agent exited
+2018-02-22 22:52:27 INFO  ServerChat:149 - Agent exited
+2018-02-22 22:55:24 INFO  ServerChat:104 - Message to a client
+2018-02-22 22:55:24 INFO  ServerChat:90 - New chat was started
+2018-02-22 22:55:24 INFO  ServerChat:117 - Message to an agent
+2018-02-22 22:55:24 INFO  ServerChat:164 - Client leaved
+2018-02-22 22:55:24 INFO  ServerChat:131 - Client exited
+2018-02-22 22:55:24 INFO  ServerChat:149 - Agent exited
+2018-02-22 22:55:24 INFO  ServerChat:149 - Agent exited
+2018-02-22 22:56:29 INFO  ServerChat:90 - New chat was started
+2018-02-22 22:56:29 INFO  ServerChat:117 - Message to an agent
+2018-02-22 22:56:31 INFO  ServerChat:117 - Message to an agent
+2018-02-22 22:56:38 INFO  ServerChat:131 - Client exited
+2018-02-22 22:56:42 INFO  ServerChat:149 - Agent exited
+2018-02-23 12:21:31 INFO  ServerChat:92 - Message to a client
+2018-02-23 12:21:31 INFO  ServerChat:78 - New chat was started
+2018-02-23 12:21:31 INFO  ServerChat:105 - Message to an agent
+2018-02-23 12:21:31 INFO  ServerChat:152 - Client leaved
+2018-02-23 12:21:31 INFO  ServerChat:119 - Client exited
+2018-02-23 12:21:31 INFO  ServerChat:137 - Agent exited
+2018-02-23 12:21:31 INFO  ServerChat:137 - Agent exited
+2018-02-23 12:55:36 INFO  ServerChat:92 - Message to a client
+2018-02-23 12:55:36 INFO  ServerChat:78 - New chat was started
+2018-02-23 12:55:36 INFO  ServerChat:105 - Message to an agent
+2018-02-23 12:55:36 INFO  ServerChat:152 - Client leaved
+2018-02-23 12:55:36 INFO  ServerChat:119 - Client exited
+2018-02-23 12:55:36 INFO  ServerChat:137 - Agent exited
+2018-02-23 12:55:36 INFO  ServerChat:137 - Agent exited
+2018-02-23 12:57:18 INFO  ServerChat:92 - Message to a client
+2018-02-23 12:57:18 INFO  ServerChat:78 - New chat was started
+2018-02-23 12:57:18 INFO  ServerChat:105 - Message to an agent
+2018-02-23 12:57:18 INFO  ServerChat:152 - Client leaved
+2018-02-23 12:57:18 INFO  ServerChat:119 - Client exited
+2018-02-23 12:57:18 INFO  ServerChat:137 - Agent exited
+2018-02-23 12:57:18 INFO  ServerChat:137 - Agent exited
+2018-02-23 13:07:08 INFO  ServerChat:79 - New chat was started
+2018-02-23 13:07:08 INFO  ServerChat:106 - Message to an agent
+2018-02-23 13:07:13 INFO  ServerChat:106 - Message to an agent
+2018-02-23 13:07:14 INFO  ServerChat:106 - Message to an agent
+2018-02-23 13:07:16 INFO  ServerChat:93 - Message to a client
+2018-02-23 13:36:36 INFO  ServerChat:93 - Message to a client
+2018-02-23 13:36:36 INFO  ServerChat:79 - New chat was started
+2018-02-23 13:36:36 INFO  ServerChat:106 - Message to an agent
+2018-02-23 13:36:36 INFO  ServerChat:153 - Client leaved
+2018-02-23 13:36:36 INFO  ServerChat:120 - Client exited
+2018-02-23 13:36:36 INFO  ServerChat:138 - Agent exited
+2018-02-23 13:36:36 INFO  ServerChat:138 - Agent exited
+2018-02-23 13:36:47 INFO  ServerChat:93 - Message to a client
+2018-02-23 13:36:47 INFO  ServerChat:79 - New chat was started
+2018-02-23 13:38:05 INFO  ServerChat:106 - Message to an agent
+2018-02-23 13:38:05 INFO  ServerChat:153 - Client leaved
+2018-02-23 13:38:05 INFO  ServerChat:120 - Client exited
+2018-02-23 13:38:05 INFO  ServerChat:138 - Agent exited
+2018-02-23 13:38:05 INFO  ServerChat:138 - Agent exited
+2018-02-23 13:38:31 INFO  ServerChat:93 - Message to a client
+2018-02-23 13:38:38 INFO  ServerChat:79 - New chat was started
+2018-02-23 13:39:01 INFO  ServerChat:106 - Message to an agent
+2018-02-23 13:39:12 INFO  ServerChat:153 - Client leaved
+2018-02-23 13:39:12 INFO  ServerChat:120 - Client exited
+2018-02-23 13:39:12 INFO  ServerChat:138 - Agent exited
+2018-02-23 13:39:12 INFO  ServerChat:138 - Agent exited
+2018-02-23 14:23:35 ERROR Reader:17 - Connection refused: connect
+2018-02-23 14:24:11 ERROR Reader:17 - Connection refused: connect
+2018-02-23 14:26:25 ERROR Reader:17 - Connection reset
+2018-02-23 14:26:25 ERROR Reader:17 - Connection reset
+2018-02-23 14:27:28 ERROR Reader:17 - Connection refused: connect
+2018-02-23 14:30:13 ERROR Reader:17 - Connection refused: connect
+2018-02-23 15:42:01 ERROR Reader:18 - Connection refused: connect
+2018-02-23 16:37:34 ERROR Reader:18 - Connection refused: connect
+2018-02-23 18:13:09 ERROR ServerChat:177 - Address already in use: NET_Bind
+2018-02-23 18:13:41 ERROR ServerChat:177 - Address already in use: NET_Bind
+2018-02-23 18:14:51 INFO  ServerChat:79 - New chat was started
+2018-02-23 18:14:51 INFO  ServerChat:106 - Message to an agent
+2018-02-23 18:15:01 INFO  ServerChat:93 - Message to a client
+2018-02-23 18:15:02 INFO  ServerChat:93 - Message to a client
+2018-02-23 18:15:02 INFO  ServerChat:93 - Message to a client
+2018-02-23 18:15:54 INFO  ServerChat:79 - New chat was started
+2018-02-23 18:15:54 INFO  ServerChat:106 - Message to an agent
+2018-02-23 20:42:39 INFO  ServerChat:138 - Agent exited
+2018-02-23 20:44:11 INFO  ServerChat:138 - Agent exited
+2018-02-23 21:01:33 INFO  ServerChat:138 - Agent exited
+2018-02-23 21:02:20 INFO  ServerChat:138 - Agent exited
+2018-02-23 21:09:27 INFO  ServerChat:138 - Agent exited
+2018-02-23 23:13:35 ERROR Reader:18 - Connection refused: connect
+2018-02-23 23:13:40 ERROR Reader:18 - Connection refused: connect
+2018-02-23 23:28:51 ERROR ServerChat:181 - Connection reset
+2018-02-23 23:52:37 ERROR Reader:18 - Connection reset
+2018-02-23 23:53:34 ERROR Reader:18 - Connection reset
+2018-02-23 23:55:23 ERROR ServerChat:181 - Connection reset
+2018-02-23 23:56:14 ERROR Reader:18 - Connection refused: connect
+2018-02-23 23:56:54 ERROR ServerChat:181 - Connection reset
+2018-02-24 00:00:11 ERROR ServerChat:181 - Connection reset
+2018-02-24 00:01:01 ERROR Reader:18 - Connection reset
+2018-02-24 00:02:53 ERROR ServerChat:181 - Connection reset
