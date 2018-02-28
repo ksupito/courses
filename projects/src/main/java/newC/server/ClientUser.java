@@ -52,69 +52,24 @@ public class ClientUser {
             serverMethods = new ServerMethods();
             while (!socket.isClosed()) {
                 message = dis.readUTF();
-                if (message.trim().equals("/exit")) {
-                    /*if (agentUser != null) {
-                        if (serverMethods.exitClient(this)) {
-                            serverMethods.searchChat();
-                            socket.close();
-                            break;
-                        }
-                    }
-                    if (waitAgent == true) {
-                        serverMethods.exitClientFromQueue(this);
-                        serverMethods.searchChat();
-                        socket.close();
-                        break;
-                    } else {
-                        serverMethods.exitClientFromList(this);
-                        serverMethods.searchChat();
-                        socket.close();
-                        break;
-                    }*/
+                if (message.trim().equals("/exit")) {                    
                     exit();
                     socket.close();
                     serverMethods.searchChat();
                     break;
 
-                } else if (message.trim().equals("/leave")) {
-                    /*if (agentUser != null) {
-                        if (serverMethods.leaveClient(this)) {
-                            serverMethods.searchChat();
-                            continue;
-                        }
-                    } else if (waitAgent == true) {
-                        if (serverMethods.leaveClientFromQueue(this)) {
-                            serverMethods.searchChat();
-                            continue;
-                        }
-                    }else {continue;}*/
+                } else if (message.trim().equals("/leave")) {                    
                     leave();
                     serverMethods.searchChat();
                     continue;
                 }
                 if (agentUser == null && !waitAgent) {
                     serverMethods.changeQueue(this);
-                    waitAgent = true;
-                    /*if (serverMethods.searchChat()) {
-                        serverMethods.send(message, agentUser.getDos(), name);
-                        continue;
-                    } else {
-                        this.addMessage(message);
-                        serverMethods.send("wait please!", this.getDos(), serverMethods.getChatName());
-                        continue;
-                    }*/
+                    waitAgent = true;                   
                     waitChat();
                     continue;
                 }
-                if (waitAgent && agentUser == null) {
-                    /*if (serverMethods.searchChat()) {
-                        serverMethods.send(message, agentUser.getDos(), name);
-                        continue;
-                    } else {
-                        this.addMessage(message);
-                        serverMethods.send("wait please!", this.getDos(), serverMethods.getChatName());
-                        continue;
-                    }*/
+                if (waitAgent && agentUser == null) {                   
                     waitChat();
                     continue;
                 } else {
