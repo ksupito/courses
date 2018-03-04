@@ -1,6 +1,7 @@
 package newC.server;
 
-import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
+//import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
+
 import org.apache.log4j.Logger;
 
 import java.io.*;
@@ -13,6 +14,8 @@ public class ServerThread implements Runnable {
     private ServerMethods serverMethods;
     private String name;
     private String registration;
+    AgentUser agent = null;
+    ClientUser client = null;
     private static final Logger log = Logger.getLogger(ServerThread.class.getSimpleName());
 
     public ServerThread(Socket socket) {
@@ -30,7 +33,6 @@ public class ServerThread implements Runnable {
             if (registration != null) {
                 if (registration.contains("/a")) {
                     createAgent();
-                    socket.close();
                     return;
                 }
                 if (registration.contains("/c")) {
@@ -39,13 +41,14 @@ public class ServerThread implements Runnable {
                 }
             }
         } catch (IOException e) {
+            criticalExit();
             log.error(e.getMessage());
         }
     }
 
     private void createAgent() throws IOException {
         name = registration.replaceFirst("/a ", "");
-        AgentUser agent = new AgentUser(dis, dos, socket, name);
+        agent = new AgentUser(dis, dos, socket, name);
         serverMethods.addAgentToMap(agent);
         log.info("agent registered");
         agent.read();
@@ -53,10 +56,25 @@ public class ServerThread implements Runnable {
 
     private void createClient() throws IOException {
         name = registration.replaceFirst("/c ", "");
-        ClientUser client = new ClientUser(dis, dos, socket, name);
+        client = new ClientUser(dis, dos, socket, name);
         serverMethods.addClient(client);
+
         serverMethods.send("type message, pleaes!", dos, serverMethods.getChatName());
         log.info("client registered");
         client.read();
+    }
+
+    private void criticalExit() {
+        try {
+            if (agent != null) {
+                serverMethods.exitAgent(agent);
+            } else if (client != null) {
+                client.getExit();
+            }
+
+            socket.close();
+        } catch (IOException ex) {
+            log.error(ex.getMessage());
+        }
     }
 }

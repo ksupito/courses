@@ -41,6 +41,7 @@ public class AgentUser {
                 message = dis.readUTF();
                 if (message.trim().equals("/exit")) {
                     if (serverMethods.exitAgent(this)) {
+                        dos.writeUTF("cancel");
                         socket.close();
                         break;
                     }

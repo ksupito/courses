@@ -23,6 +23,10 @@ public class ClientUser {
         this.socket = socket;
     }
 
+    public void setWaitAgent(boolean waitAgent) {
+        this.waitAgent = waitAgent;
+    }
+
     public List<String> getMessages() {
         return messages;
     }
@@ -52,24 +56,26 @@ public class ClientUser {
             serverMethods = new ServerMethods();
             while (!socket.isClosed()) {
                 message = dis.readUTF();
-                if (message.trim().equals("/exit")) {                    
+                if (message.trim().equals("/exit")) {
                     exit();
+                    dos.writeUTF("cancel");
                     socket.close();
                     serverMethods.searchChat();
                     break;
 
-                } else if (message.trim().equals("/leave")) {                    
+                } else if (message.trim().equals("/leave")) {
                     leave();
                     serverMethods.searchChat();
+                    waitAgent = false;
                     continue;
                 }
                 if (agentUser == null && !waitAgent) {
                     serverMethods.changeQueue(this);
-                    waitAgent = true;                   
+                    waitAgent = true;
                     waitChat();
                     continue;
                 }
-                if (waitAgent && agentUser == null) {                   
+                if (waitAgent && agentUser == null) {
                     waitChat();
                     continue;
                 } else {
@@ -84,6 +90,7 @@ public class ClientUser {
     private void leave() throws IOException {
         if (agentUser != null) {
             serverMethods.leaveClient(this);
+            waitAgent = false;
 
         } else if (waitAgent) {
             serverMethods.leaveClientFromQueue(this);
@@ -109,5 +116,9 @@ public class ClientUser {
             serverMethods.send("wait please!", this.getDos(), serverMethods.getChatName());
 
         }
+    }
+
+    public void getExit() throws IOException {
+        exit();
     }
 }
